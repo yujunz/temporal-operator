@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myApp
+spec:
+  template:
+    spec:
+      containers:
+      - name: myApp
+        volumeMounts:
+          - name: extra-volume
+            mountPath: /etc/extra
+      volumes:
+        - name: extra-volume
+          secret:
+            secretName: test-secret
+
